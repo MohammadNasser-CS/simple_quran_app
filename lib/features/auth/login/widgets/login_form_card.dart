@@ -12,7 +12,7 @@ class _LoginFormCardState extends State<LoginFormCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.zero, 
+      margin: EdgeInsets.zero,
       color: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.0),
@@ -27,8 +27,16 @@ class _LoginFormCardState extends State<LoginFormCard> {
               style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 16.0),
-            TextField(
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "This Field Is Required";
+                }
+                return null;
+              },
               decoration: InputDecoration(
+                errorStyle:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 hintText: S.of(context).userName_email,
                 hintStyle: const TextStyle(fontSize: 18),
                 labelText: S.of(context).userName_email,
@@ -37,9 +45,17 @@ class _LoginFormCardState extends State<LoginFormCard> {
               ),
             ),
             const SizedBox(height: 16.0),
-            TextField(
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "This Field Is Required";
+                }
+                return null;
+              },
               obscureText: true,
               decoration: InputDecoration(
+                errorStyle:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 hintText: S.of(context).password,
                 hintStyle: const TextStyle(fontSize: 18),
                 labelText: S.of(context).password,

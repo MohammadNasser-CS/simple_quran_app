@@ -11,6 +11,7 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
+  GlobalKey<FormState> _globalKey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,46 +19,55 @@ class _SignupPageState extends State<SignupPage> {
         padding: const EdgeInsets.all(24.0),
         child: Center(
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  'assets/images/logo.png',
-                  width: MediaQuery.sizeOf(context).width * 0.4,
-                ),
-                const SizedBox(height: 24.0),
-                const SignupFormCard(),
-                const SizedBox(height: 24.0),
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: FormCardButton(
-                    title: S.of(context).sign_up,
-                    onPressed: () {},
+            child: Form(
+              key: _globalKey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    'assets/images/logo.png',
+                    width: MediaQuery.sizeOf(context).width * 0.4,
                   ),
-                ),
-                const SizedBox(height: 24.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      S.of(context).haveAccount,
-                      style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.w500),
-                    ),
-                    TextButton(
+                  const SizedBox(height: 24.0),
+                  const SignupFormCard(),
+                  const SizedBox(height: 24.0),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: FormCardButton(
+                      title: S.of(context).sign_up,
                       onPressed: () {
-                        Navigator.of(context).pop();
+                        if(_globalKey.currentState!.validate()){
+                          debugPrint('Data Correct');
+                        }else{
+                          debugPrint('Data False');
+                        }
                       },
-                      child: Text(
-                        S.of(context).login,
+                    ),
+                  ),
+                  const SizedBox(height: 24.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        S.of(context).haveAccount,
                         style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          S.of(context).login,
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),

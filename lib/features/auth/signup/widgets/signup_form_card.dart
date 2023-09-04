@@ -27,8 +27,16 @@ class _SignupFormCardState extends State<SignupFormCard> {
               style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 16.0),
-            TextField(
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Field Required";
+                }
+                return null;
+              },
               decoration: InputDecoration(
+                errorStyle:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 hintText: S.of(context).userName,
                 hintStyle: const TextStyle(fontSize: 18),
                 labelText: S.of(context).userName,
@@ -37,8 +45,16 @@ class _SignupFormCardState extends State<SignupFormCard> {
               ),
             ),
             const SizedBox(height: 16.0),
-            TextField(
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Field Required";
+                }
+                return null;
+              },
               decoration: InputDecoration(
+                errorStyle:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 hintText: S.of(context).email,
                 hintStyle: const TextStyle(fontSize: 18),
                 labelText: S.of(context).email,
@@ -47,9 +63,17 @@ class _SignupFormCardState extends State<SignupFormCard> {
               ),
             ),
             const SizedBox(height: 16.0),
-            TextField(
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Field Required";
+                }
+                return null;
+              },
               obscureText: true,
               decoration: InputDecoration(
+                errorStyle:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 hintText: S.of(context).password,
                 hintStyle: const TextStyle(fontSize: 18),
                 labelText: S.of(context).password,
@@ -58,9 +82,17 @@ class _SignupFormCardState extends State<SignupFormCard> {
               ),
             ),
             const SizedBox(height: 16.0),
-            TextField(
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return "Field Required";
+                }
+                return null;
+              },
               obscureText: true,
               decoration: InputDecoration(
+                errorStyle:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 hintText: S.of(context).confirm_password,
                 hintStyle: const TextStyle(fontSize: 18),
                 labelText: S.of(context).confirm_password,
