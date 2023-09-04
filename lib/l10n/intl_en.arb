@@ -1,0 +1,14 @@
+{
+    "@@local":"en",
+    "login":"Login",
+    "sign_in":"Sign in",
+    "userName_email":"userName/Email",
+    "userName":"userName",
+    "email":"Email",
+    "password":"Password",
+    "confirm_password":"Confirm Password",
+    "forgetPassword":"Forget password?",
+    "newUser":"New user?",
+    "sign_up":"Sign up",
+    "haveAccount":"Already Have Account?"
+}
